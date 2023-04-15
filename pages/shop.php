@@ -67,8 +67,9 @@ $cntlivre = count($livres);
                            <div class="row-md-10">
                                <div class="card-body">
                                    <h5 class="card-title text-black"><?php print $livres[$i]->nom_produit;?></h5>
+                                   <button  id="book<?php print $livres[$i]->id_produit;?>but" type="button" class="btn btn-primary btn-sm">Small button</button>
                                    <p class="card-text text-black">Prix : <?php print $livres[$i]->prix;?></p>
-                                   <p class="card-text"><small class="text-muted"><?php print $livres[$i]->description; ?></small></p>
+                                   <p id="book<?php print $livres[$i]->id_produit;?>" class="card-text"><small class="text-muted"><?php print $livres[$i]->description; ?></small></p>
                                </div>
                            </div>
                        </div>
