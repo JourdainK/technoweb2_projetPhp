@@ -25,7 +25,7 @@ class produits extends Hydrate {
             }
         }
         catch(PDOException $e){
-            echo '<br>Echec de la connection : '.$e->getMessage();
+            echo '<br>Echec de la connexion : '.$e->getMessage();
         }
     }
 
@@ -33,7 +33,7 @@ class produits extends Hydrate {
         try {
             $query = "update produit set ".$champ." = :valeur WHERE id_produit= :id_produit";
             $res = $this->_db->prepare($query);
-            $res->bindValue('=valeur',$valeur);
+            $res->bindValue(':valeur',$valeur);
             $res->bindValue(':id_produit',$id_produit);
             $res->execute();
         }catch (PDOException $e){

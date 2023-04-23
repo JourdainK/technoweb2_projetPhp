@@ -2,10 +2,9 @@
 if(isset($_POST['submit_login'])){
     $admin = new AdminDB($cnx); // $cnx est dans l'index
     $adm = $admin->isAdmin($_POST['login'],$_POST['password']);
-    print 'TEST' ;
-    var_dump($adm);
     if($adm == 1){
         $_SESSION['admin'] = 1;
+        unset($_SESSION['page']);
         print '<meta http-equiv="refresh": content="0;url=./admin/index.php">';
     }else {
         //TODO entrée client ? > si pas admin ? client -> class client -> check si client inscrit -> si client inscrit -> SESSION[client]
