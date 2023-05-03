@@ -42,11 +42,11 @@ class produits extends Hydrate {
     }
 
     //Spécial ajax
-    public function getProdById($id){
+    public function getProdByNom($nom){
         try{
-            $query="select * from produit where id_produit = :id";
+            $query="select * from produit where nom_produit = :nom";
             $res = $this->_db->prepare($query);
-            $res->bindValue(':id',$id);
+            $res->bindValue(':nom',$nom);
             $res->execute();
             $data = $res->fetch();
             return $data;
@@ -65,6 +65,20 @@ class produits extends Hydrate {
         }catch(PDOException $e) {
             print "Echec ".$e->getMessage();
         }
+    }
+
+
+    public function addProd($nom_produit, $description, $prix, $photo, $id_categorie){
+        try{
+            $query = "INSERT INTO produit (nom_produit, description, prix, photo, id_categorie) values";
+            $query.="('".$nom_produit."','".$description."','".$prix."','".$photo."','".$id_categorie."')";
+
+            $res = $this->_db->prepare($query);
+            $res->execute();
+        }catch (PDOException $e){
+            print "Echec".$e->getMessage();
+        }
+
     }
 
 }
