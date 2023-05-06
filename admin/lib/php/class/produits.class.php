@@ -6,7 +6,7 @@ class produits extends Hydrate {
 
     public function __construct($cnx){
         $this->_db = $cnx;
-        var_dump($cnx);
+        //var_dump($cnx);
     }
 
     public function getAllProduits(){
@@ -49,7 +49,12 @@ class produits extends Hydrate {
             $res->bindValue(':nom',$nom);
             $res->execute();
             $data = $res->fetch();
-            return $data;
+            if(!empty($data)) {
+                return $data;
+            }
+            else{
+                return 0;
+            }
         }catch(PDOException $e){
             print "Echec ".$e->getMessage();
         }
@@ -68,10 +73,10 @@ class produits extends Hydrate {
     }
 
 
-    public function addProd($nom_produit, $description, $prix, $photo, $id_categorie){
+    public function addProd($nom_produit, $description, $prix, $id_categorie){
         try{
-            $query = "INSERT INTO produit (nom_produit, description, prix, photo, id_categorie) values";
-            $query.="('".$nom_produit."','".$description."','".$prix."','".$photo."','".$id_categorie."')";
+            $query = "INSERT INTO produit (nom_produit, description, prix, id_categorie) values";
+            $query.="('".$nom_produit."','".$description."','".$prix."', '".$id_categorie."')";
 
             $res = $this->_db->prepare($query);
             $res->execute();
@@ -80,5 +85,19 @@ class produits extends Hydrate {
         }
 
     }
+
+    //essaie upload photo php => incompatibilité , AJAX/PHP => rechercher tuto ajax/upload php
+    public function addPhoto($photoPath, $nomProd) {
+        try {
+            $query = "UPDATE produit SET photo=:photoPath WHERE nom_produit=:nomProd";
+            $res = $this->_db->prepare($query);
+            $res->bindValue(':photoPath',$photoPath);
+            $res->bindValue(':nomProd',$nomProd);
+            $res->execute();
+        } catch (PDOException $e) {
+            print "Échec : ".$e->getMessage();
+        }
+    }
+
 
 }

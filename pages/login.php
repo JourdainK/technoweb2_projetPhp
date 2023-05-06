@@ -22,20 +22,23 @@ if(isset($_POST['submit_login'])){
 
             <form action="<?php print $_SERVER['PHP_SELF'];?>" method="post">
                 <div class="mb-3">
-                    <label for="login" class="form-label">Email address</label>
+                    <label for="login" class="form-label">Email :</label>
                     <input type="text" class="form-control" id="login" name="login">
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">Mot de passe : </label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
-                <button type="submit" name="submit_login" id="submit_login" class="btn btn-primary">Envoyer</button>
+                <div class="d-flex justify-content-between mb-3">
+                    <button type="submit" name="submit_login" id="submit_login" class="btn btn-dark">Envoyer</button>
+                    <a href="index.php?page=createAccount.php" class="align-self-right text-right btn btn-dark text-light" role="button" alt="Lien créér compte">Créer un compte client</a>
+                </div>
             </form>
 
         </div>
 
         <div class="col pt-5 text-center">
-            <img src="../images/bandeau3.jpg" title="carlin is watching" alt="Phpoto de George Carlin">
+            <img src="../images/bandeau3.jpg" title="carlin is watching" alt="Photo de George Carlin">
         </div>
 
     </div>

@@ -7,4 +7,6 @@ require '../class/produits.class.php';
 $cnx = Connexion::getInstance($dsn,$user,$pass);
 
 $prod = new produits($cnx);
-$prodFound = $prod->getProdByNom($_POST['nomInput']);
+$data[] = $prod->getProdByNom($_POST['nom_produit']);
+
+print json_encode($data);

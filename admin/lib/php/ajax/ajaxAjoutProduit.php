@@ -8,4 +8,5 @@ require '../class/produits.class.php';
 $cnx = Connexion::getInstance($dsn,$user,$pass);
 
 $pr = new produits($cnx);
-$prods[] = $pr->addProd($_POST['nom_produit'],$_POST['description'],$_POST['prix'],$_POST['photo'],$_POST['id_categorie']);
+$prods = $pr->addProd($_POST['nom_produit'],$_POST['description'],$_POST['prix'],$_POST['id_categorie']);
+print json_encode($prods);

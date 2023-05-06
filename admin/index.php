@@ -13,7 +13,7 @@ include './lib/php/admin_liste_include.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../lib/css/main.css"/>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="../lib/js/fonction_jquery.js"></script>
+    <script src="../lib/js/fonction_admin.js"></script>
     <title>George Carlin's Fansite</title>
 </head>
 <body>
