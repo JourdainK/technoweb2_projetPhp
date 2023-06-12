@@ -6,9 +6,6 @@ if(isset($_POST['submit_user'])){
         $client = new client($cnx);
         $town = new Ville($cnx);
         $idville = $town->getVilleID($ville);
-        print "<br><br><br><br> idville : ".$idville->id_ville;
-        print 'Recup FORM VILLE : '.$ville;
-        //print '<br><br><br><br>test cli : '.$cli;
     }
 }
 

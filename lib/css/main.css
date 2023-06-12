@@ -49,86 +49,17 @@ nav a:hover {
     color: white;
 }
 
-/* création de l'animation des quotes avec l'aide du tutoriel (http://fofwebdesignnt.co.uk/template/_testing/quotes-css.htm)*/
-.quotes { position:relative; max-width:25em; list-style-type:none; text-align:center; margin:0 auto; padding:0 }
-.quotes li { position:absolute; left:0; right:0; background:rgb(8, 8, 8); text-align:center; padding:1em; border-radius:0.25em; opacity:0; color: white; font-size: 14pt;}
-.quotes li:last-child { position:relative }
-
-
-.quotes li:nth-child(1) { -webkit-animation:quote 140s 0s  infinite; animation:quote 140s 0s  infinite }
-.quotes li:nth-child(2) { -webkit-animation:quote 140s 10s infinite; animation:quote 140s 10s infinite }
-.quotes li:nth-child(3) { -webkit-animation:quote 140s 20s infinite; animation:quote 140s 20s infinite }
-.quotes li:nth-child(4) { -webkit-animation:quote 140s 30s infinite; animation:quote 140s 30s infinite }
-.quotes li:nth-child(5) { -webkit-animation:quote 140s 40s infinite; animation:quote 140s 40s infinite }
-.quotes li:nth-child(6) { -webkit-animation:quote 140s 50s infinite; animation:quote 140s 50s infinite }
-.quotes li:nth-child(7) { -webkit-animation:quote 140s 60s infinite; animation:quote 140s 60s infinite }
-.quotes li:nth-child(8) { -webkit-animation:quote 140s 70s infinite; animation:quote 140s 70s infinite }
-.quotes li:nth-child(9) { -webkit-animation:quote 140s 80s infinite; animation:quote 140s 80s infinite }
-.quotes li:nth-child(10) { -webkit-animation:quote 140s 90s infinite; animation:quote 140s 90s infinite }
-.quotes li:nth-child(11) { -webkit-animation:quote 140s 100s infinite; animation:quote 140s 100s infinite }
-.quotes li:nth-child(12) { -webkit-animation:quote 140s 110s infinite; animation:quote 140s 110s infinite }
-.quotes li:nth-child(13) { -webkit-animation:quote 140s 120s infinite; animation:quote 140s 120s infinite }
-.quotes li:nth-child(14) { -webkit-animation:quote 140s 130s infinite; animation:quote 140s 130s infinite }
-@-webkit-keyframes quote {
-    0%   { opacity:0 }
-    5%   { opacity:1 }
-    15%  { opacity:1 }
-    20%  { opacity:0 }
+.navideo a:hover{
+    background-color: rgba(255, 123, 0);
+    text-decoration: none;
+    color: white;
 }
 
-@keyframes quote {
-    0%   { opacity:0 }
-    5%   { opacity:1 }
-    15%  { opacity:1 }
-    20%  { opacity:0 }
-}
-/*fin de l'animation */
-
-.nodot li{
-    list-style-type: none;
-}
-
-#film ul {
-    margin : 0;
-    padding: 0;
+.navideo a{
+    text-decoration: none;
+    color: white;
 }
 
 
-#film {
-    border: 5px double black;
-    margin-top: 2rem;
-}
 
-#award {
-    border: 5px double black;
-    margin-top: 2rem;
-}
 
-#award ul {
-    list-style-type: none;
-    margin: 0rem;
-    padding: 0rem;
-}
-
-#fccimg {
-    float: left;
-    width:  rem;
-    margin: 0%;
-    padding: 2rem;
-    padding-right: 3rem;
-}
-
-#bio {
-    font-size: 1.2rem;
-    padding-left: 1rem;
-}
-
-#standup {
-    border: 5px double black;
-    margin-top: 2rem;
-}
-
-#standup ul {
-    margin: 0rem;
-    padding: 0rem;
-}

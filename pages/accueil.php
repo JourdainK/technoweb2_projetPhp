@@ -105,114 +105,245 @@ var_dump($dvd);
             </div>
         </div>
 
+
         <div class="col-lg-4">
-
-            <div id="cits">
-
-                <ul id="quotes" class="quotes">
-                    <li>"Hansel and Gretel discovered the ginger bread house about 45 minutes after they discovered the
-                        mushrooms..."<br><cite>George Carlin</cite></li>
-                    <li>"Hansel et Gretel découvrirent la maison en pain d'épices environ 45 minutes après avoir trouvé
-                        les champignons...<br><cite>George Carlin</cite></li>
-                    <li>"Fussy eater is a euphemism for big pain in the ass"<br><cite>George Carlin</cite></li>
-                    <li>"Faire la fine bouche est un euphémisme qui signifie casse-couilles"<br><cite>George
-                            Carlin</cite></li>
-                    <li>"Have you ever noticed that anybody driving slower than you is an idiot, and anyone going faster
-                        than you is a maniac".<br><cite>George Carlin</cite></li>
-                    <li>"Avez-vous remarqué que celui qui conduit moins vite que vous est un idiot, et celui qui conduit
-                        plus vite est un fou du volant "<br><cite>George Carlin</cite></li>
-                    <li>"One great thing about getting old is that you can get out of all sorts of social obligations
-                        just by saying you're tired". <br><cite>George Carlin</cite></li>
-                    <li>"Une chouette chose quand on vieilli, on peut éviter toute obligation sociale juste en disant
-                        qu'on est fatigué"<br><cite>George Carlin</cite></li>
-                    <li>"Most people work just hard enough not to get fired and get paid just enough money not to quit".
-                        <br><cite>George Carlin</cite></li>
-                    <li>"La plupart des personnes travaille juste assez dur pour ne pas se faire virer et sont payées
-                        juste assez pour ne pas démissionner"<br><cite>George Carlin</cite></li>
-                    <li>"Here's all you have to know about men and women : women are crazy, men are stupid. And the main
-                        reason women are crazy is that men are stupid".<br><cite>George Carlin</cite></li>
-                    <li>"Voici tout ce que vous devez savoir sur les hommes et les femmes : les femmes sont folles et
-                        les hommes stupides. Et la principale raison pour laquelle les femmes sont folles, c'est que les
-                        hommes sont stupides"<br><cite>George Carlin</cite></li>
-                    <li>"Comedy is filled with surprise, so when i cross a line...i like to find out where the line
-                        might be and then cross it deliberately, and then make the audience happy about crossing the
-                        line with me".<br><cite>George Carlin</cite></li>
-                    <li>"La comédie stand-up est remplie de surprise et quand je transgresse un tabou...J'aime savoir
-                        quelle est la limite, ensuite la dépasser délibérément et rendre le public heureux d'avoir
-                        dépassé cette limite avec moi"<br><cite>George Carlin</cite></li>
-
-                </ul>
-
+            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <li>"Hansel and Gretel discovered the ginger bread house about 45 minutes after they discovered the mushrooms..."<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Hansel et Gretel découvrirent la maison en pain d'épices environ 45 minutes après avoir trouvé les champignons...<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Fussy eater is a euphemism for big pain in the ass"<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Faire la fine bouche est un euphémisme qui signifie casse-couilles"<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Have you ever noticed that anybody driving slower than you is an idiot, and anyone going faster than you is a maniac".<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Avez-vous remarqué que celui qui conduit moins vite que vous est un idiot, et celui qui conduit plus vite est un fou du volant "<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"One great thing about getting old is that you can get out of all sorts of social obligations just by saying you're tired". <br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Une chouette chose quand on vieilli, on peut éviter toute obligation sociale juste en disant qu'on est fatigué"<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Most people work just hard enough not to get fired and get paid just enough money not to quit".<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"La plupart des gens travaillent juste assez pour ne pas être virés et sont payés juste assez pour ne pas démissionner"<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"I think it's the duty of the comedian to find out where the line is drawn and cross it deliberately".<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Je pense que c'est le devoir du comédien de trouver où la ligne est tracée et de la franchir délibérément"<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Most people work just hard enough not to get fired and get paid just enough money not to quit".<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"La plupart des personnes travaille juste assez dur pour ne pas se faire virer et sont payées juste assez pour ne pas démissionner"<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Here's all you have to know about men and women : women are crazy, men are stupid. And the main reason women are crazy is that men are stupid".<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Voici tout ce que vous devez savoir sur les hommes et les femmes : les femmes sont folles et les hommes stupides. Et la principale raison pour laquelle les femmes sont folles, c'est que les hommes sont stupides"<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"Comedy is filled with surprise, so when i cross a line...i like to find out where the line might be and then cross it deliberately, and then make the audience happy about crossing the line with me".<br><cite>George Carlin</cite></li>
+                    </div>
+                    <div class="carousel-item">
+                        <li>"La comédie stand-up est remplie de surprise et quand je transgresse un tabou...J'aime savoir quelle est la limite, ensuite la dépasser délibérément et rendre le public heureux d'avoir dépassé cette limite avec moi"<br><cite>George Carlin</cite></li>
+                    </div>
+                    <!-- Add more carousel items for each quote -->
+                </div>
+                <br><br><br><br><br>
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
 
            <p class="text-center">
-               <img src="images/portrait.jpg" alt="Portrait de George Carlin" id="portrait">
+               <img  class="rounded-3" src="images/portrait.jpg" alt="Portrait de George Carlin" id="portrait">
            </p>
 
-            <div id="award">
+            <div class="rounded-3">
                 <h2>Récompenses</h2>
 
-                <ul>
-                    <li>- 5 Grammys awards (nominé 11 fois).</li>
-                    <li>- Prix Mark Twain.</li>
-                    <li>- 3 American comedy awards (dont un d'honneur pour l'ensemble de sa carrière).</li>
-                    <br>
-                </ul>
+                <table class="table table-dark p-0">
+                    <tbody>
+                    <tr>
+                        <td>- 5 Grammys awards (nominé 11 fois).</td>
+                    </tr>
+                    <tr>
+                        <td>- Prix Mark Twain.</td>
+                    </tr>
+                    <tr>
+                        <td>- 3 American comedy awards (dont un d'honneur pour l'ensemble de sa carrière).</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
 
 
-            <div id="film" class="nodot">
 
+            <div>
                 <h2>Filmographie</h2>
-
-                <ul>
-                    <li>1968 : Il y a un homme dans le lit de maman</li>
-                    <li>1976 : Car Wash</li>
-                    <li>1979 : Americathon</li>
-                    <li>1987 : Une chance pas croyable</li>
-                    <li>1989 : L'Excellente Aventure de Bill et Ted</li>
-                    <li>1991 : Les Folles Aventures de Bill et Ted</li>
-                    <li>1991 : Le Prince des marées</li>
-                    <li>1999 : Dogma</li>
-                    <li>2001 : Jay et Bob contre-attaquent</li>
-                    <li>2003 : Scary Movie 3</li>
-                    <li>2004 : Père et Fille</li>
-                    <li>2005 : Tarzan 2 : L'Enfance d'un héros</li>
-                    <li>2005 : The Aristocrats</li>
-                    <li>2006 : Cars</li>
-                    <li>2007 : Cendrillon et le Prince (pas trop) charmant</li>
-                    <br>
-
-                </ul>
+                <table class="table table-dark p-0">
+                    <tbody>
+                    <tr>
+                        <td>1968 : Il y a un homme dans le lit de maman</td>
+                    </tr>
+                    <tr>
+                        <td>1976 : Car Wash</td>
+                    </tr>
+                    <tr>
+                        <td>1979 : Americathon</td>
+                    </tr>
+                    <tr>
+                        <td>1987 : Une chance pas croyable</td>
+                    </tr>
+                    <tr>
+                        <td>1989 : L'Excellente Aventure de Bill et Ted</td>
+                    </tr>
+                    <tr>
+                        <td>1991 : Les Folles Aventures de Bill et Ted</td>
+                    </tr>
+                    <tr>
+                        <td>1991 : Le Prince des marées</td>
+                    </tr>
+                    <tr>
+                        <td>1999 : Dogma</td>
+                    </tr>
+                    <tr>
+                        <td>2001 : Jay et Bob contre-attaquent</td>
+                    </tr>
+                    <tr>
+                        <td>2003 : Scary Movie 3</td>
+                    </tr>
+                    <tr>
+                        <td>2004 : Père et Fille</td>
+                    </tr>
+                    <tr>
+                        <td>2005 : Tarzan 2 : L'Enfance d'un héros</td>
+                    </tr>
+                    <tr>
+                        <td>2005 : The Aristocrats</td>
+                    </tr>
+                    <tr>
+                        <td>2006 : Cars</td>
+                    </tr>
+                    <tr>
+                        <td>2007 : Cendrillon et le Prince (pas trop) charmant</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <div id="standup" class="nodot pb-5">
 
-                <ul>
-                    <h2>Stand-up</h2>
-                    <li>1967 : Take-offs and put-ons</li>
-                    <li>1972 : FM & AM</li>
-                    <li>1972 : Class clown</li>
-                    <li>1973 : Operation Foole</li>
-                    <li>1974 : Toledo window box</li>
-                    <li>1977 : On Location: George Carlin at USC</li>
-                    <li>1978 : George Carlin: Again!</li>
-                    <li>1982 : Carlin at Carnegie</li>
-                    <li>1984 : Carlin on Campus</li>
-                    <li>1986 : Playin' with your head</li>
-                    <li>1988 : What am I doing in New Jersey ?</li>
-                    <li>1990 : Doin' it again</li>
-                    <li>1992 : Jammin' in New-York</li>
-                    <li>1996 : Back in town</li>
-                    <li>1997 : George Carlin : 40 years of Comedy</li>
-                    <li>1999 : You are all diseased</li>
-                    <li>2001 : Complaints and Grievances</li>
-                    <li>2005 : Life is worth losing</li>
-                    <li>2008 : It's bad for ya</li>
-                    <br>
-                </ul>
-
+            <div>
+                <table class="table table-dark p-0">
+                    <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Special</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1967</td>
+                        <td>Take-offs and put-ons</td>
+                    </tr>
+                    <tr>
+                        <td>1972</td>
+                        <td>FM & AM</td>
+                    </tr>
+                    <tr>
+                        <td>1972</td>
+                        <td>Class clown</td>
+                    </tr>
+                    <tr>
+                        <td>1973</td>
+                        <td>Operation Foole</td>
+                    </tr>
+                    <tr>
+                        <td>1974</td>
+                        <td>Toledo window box</td>
+                    </tr>
+                    <tr>
+                        <td>1977</td>
+                        <td>On Location: George Carlin at USC</td>
+                    </tr>
+                    <tr>
+                        <td>1978</td>
+                        <td>George Carlin: Again!</td>
+                    </tr>
+                    <tr>
+                        <td>1982</td>
+                        <td>Carlin at Carnegie</td>
+                    </tr>
+                    <tr>
+                        <td>1984</td>
+                        <td>Carlin on Campus</td>
+                    </tr>
+                    <tr>
+                        <td>1986</td>
+                        <td>Playin' with your head</td>
+                    </tr>
+                    <tr>
+                        <td>1988</td>
+                        <td>What am I doing in New Jersey?</td>
+                    </tr>
+                    <tr>
+                        <td>1990</td>
+                        <td>Doin' it again</td>
+                    </tr>
+                    <tr>
+                        <td>1992</td>
+                        <td>Jammin' in New-York</td>
+                    </tr>
+                    <tr>
+                        <td>1996</td>
+                        <td>Back in town</td>
+                    </tr>
+                    <tr>
+                        <td>1997</td>
+                        <td>George Carlin: 40 years of Comedy</td>
+                    </tr>
+                    <tr>
+                        <td>1999</td>
+                        <td>You are all diseased</td>
+                    </tr>
+                    <tr>
+                        <td>2001</td>
+                        <td>Complaints and Grievances</td>
+                    </tr>
+                    <tr>
+                        <td>2005</td>
+                        <td>Life is worth losing</td>
+                    </tr>
+                    <tr>
+                        <td>2008</td>
+                        <td>It's bad for ya</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </div>
 
