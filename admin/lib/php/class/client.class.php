@@ -8,6 +8,7 @@ class client extends Hydrate {
 
     public function __construct($cnx){
         $this->_db = $cnx;
+        var_dump($cnx);
     }
 
     //TODO md5 -> protect password

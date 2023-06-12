@@ -30,7 +30,7 @@ include 'admin/lib/php/admin_liste_include.php';
 
 <section id="mains">
 
-    <?php
+   <?php
     if(!isset($_SESSION['page'])){
         $_SESSION['page']="accueil.php";
     }

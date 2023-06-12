@@ -42,7 +42,7 @@ var_dump($dvd);
                     href="https://en.wikipedia.org/wiki/FCC_v._Pacifica_Foundation">Wikipédia</a>).
             <br>
             <div class="text-center">
-                <img class="rounded img-fluid title=" Censure FCC" src="images/FCClaw.jpg" style="width: 50%">
+                <img class="rounded img-fluid" title="Censure FCC" src="images/FCClaw.jpg" style="width: 50%">
             </div>
             <br>
 
@@ -156,7 +156,6 @@ var_dump($dvd);
                     <li>- 5 Grammys awards (nominé 11 fois).</li>
                     <li>- Prix Mark Twain.</li>
                     <li>- 3 American comedy awards (dont un d'honneur pour l'ensemble de sa carrière).</li>
-                    <li>- Nominé pour 5 Emmys awards.</li>
                     <br>
                 </ul>
             </div>

@@ -7,7 +7,17 @@ if(isset($_POST['submit_login'])){
         unset($_SESSION['page']);
         print '<meta http-equiv="refresh": content="0;url=./admin/index.php">';
     }else {
-        //TODO entrée client ? > si pas admin ? client -> class client -> check si client inscrit -> si client inscrit -> SESSION[client]
+        $client = new client($cnx);
+        $cli = $client->isClient($_POST['login'],$_POST['password']);
+
+        if($cli){
+            $_SESSION['client'] = 1;
+            unset($_SESSION['page']);
+            print '<meta http-equiv="refresh": content="0;url=./index.php">';
+        }else{
+            print '<br><br>';
+            print "Vous n'êtes pas enregistré, veuillez vous inscrire";
+        }
         print '<br><br>';
         print "Accès réservé";
     }

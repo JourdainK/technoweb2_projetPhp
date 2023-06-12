@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['submit_inscrip'])){
+if(isset($_POST['submit_user'])){
     extract($_POST, EXTR_OVERWRITE);
     if(!empty($mail) || !empty($pass) || !empty($nom) || !empty($ville) || !empty($pays)){
         $client = new client($cnx);
@@ -18,13 +18,13 @@ if(isset($_POST['submit_inscrip'])){
     <br><br><br><br>
     <div class="row">
 
-        <div class="col d-flex justify-content-center">
+        <div class="col d-flex justify-content-center pb-4">
             <img src="../images/bandeau3.jpg" title="carlin is watching" alt="Photo de George Carlin">
-            <br><p>Pic to take space and see what's what</p>
+            <br>
         </div>
 
         <div class="col ">
-            <form action="<?php print $_SERVER['PHP_SELF'];?>" method="POST" class="form-inline" id="inscriptionForm">
+            <form action="?page=createAccount_user.php" method="POST" class="form-inline" id="inscriptionForm">
 
                 <div class="mb-3 row d-flex justify-content-between">
                     <div class="col form-group">
@@ -64,13 +64,10 @@ if(isset($_POST['submit_inscrip'])){
                 </div>
 
                 <div class="mb-3 row d-flex justify-content-between text-light">
-                        <button type="submit" class="btn btn-dark" name="submit_inscrip" id="submit_inscrip" style="width: 20%;">Inscription</button>
+                        <button type="submit" class="btn btn-dark" name="submit_inscrip" id="submit_user" style="width: 20%;">Inscription</button>
                         <button type="reset" class="btn btn-dark align-self-right" style="width: 20%">Effacer</button>
                 </div>
 
-
-
-                <!-- TODO class ville / pays  handle , insert, CRUD both-->
 
             </form>
         </div>
