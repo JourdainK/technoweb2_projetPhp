@@ -5,22 +5,22 @@ $produits = $prods->getAllProduits();
 $cnt = count($produits);
 //print 'count : '.$cnt;
 
-$arrayIdProd = array();
-for ($i = 0; $i < $cnt; $i++) {
-    $arrayIdProd[] = 'prod' . $produits[$i]->id_produit;
-}
-
 // Check if the add to cart form is submitted
 if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_code'];
+    //TODO handle quantity -> then create order (just the id) get the id -> fill detail with qty, id_produit and id_commande
+    // write order in DB , not taking care of the subscribed client or anonymous client
+    $qty = $_POST['quantity'];
 
     // Check if the shopping cart session variable is not already set
     if (!isset($_SESSION['shopping_cart'])) {
         $_SESSION['shopping_cart'] = array();
     }
 
-    // Add the product to the shopping cart session variable
-    $_SESSION['shopping_cart'][] = $product_id;
+    if (!in_array($product_id, $_SESSION['shopping_cart'])) {
+        // Add the product to the shopping cart session variable
+        $_SESSION['shopping_cart'][] = $product_id;
+    }
 
     // Redirect to prevent form resubmission
     header("Location: " . $_SERVER['PHP_SELF']);
@@ -84,13 +84,10 @@ if (isset($_POST['delete_from_cart'])) {
                                                     class="text-muted"><?php print $produits[$i]->description; ?></small>
                                         </p>
 
-                                        <form class="product-form" method="POST"
-                                              action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                                            <input name="product_code" type="hidden"
-                                                   value="<?php echo $produits[$i]->id_produit; ?>">
-                                            <button type="submit" class="btn btn-primary btn-sm" name="add_to_cart">
-                                                Ajouter
-                                            </button>
+                                        <form class="product-form" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                            <input type="number" name="quantity" value="1" min="1" max="100" step="1">
+                                            <input name="product_code" type="hidden" value="<?php echo $produits[$i]->id_produit; ?>">
+                                            <button type="submit" class="btn btn-primary btn-sm" name="add_to_cart"> Ajouter </button>
                                         </form>
 
 
