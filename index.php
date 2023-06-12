@@ -2,7 +2,7 @@
 session_start();
 include 'admin/lib/php/admin_liste_include.php';
 ?>
-
+&
 <!doctype html>
 <html lang="fr">
 <head>

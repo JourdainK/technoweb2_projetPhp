@@ -1,10 +1,52 @@
 <?php
-session_start();
 $prods = new produits($cnx);
 $produits = $prods->getAllProduits();
 //var_dump($produits);
 $cnt = count($produits);
 //print 'count : '.$cnt;
+
+$arrayIdProd = array();
+for ($i = 0; $i < $cnt; $i++) {
+    $arrayIdProd[] = 'prod' . $produits[$i]->id_produit;
+}
+
+// Check if the add to cart form is submitted
+if (isset($_POST['add_to_cart'])) {
+    $product_id = $_POST['product_code'];
+
+    // Check if the shopping cart session variable is not already set
+    if (!isset($_SESSION['shopping_cart'])) {
+        $_SESSION['shopping_cart'] = array();
+    }
+
+    // Add the product to the shopping cart session variable
+    $_SESSION['shopping_cart'][] = $product_id;
+
+    // Redirect to prevent form resubmission
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+}
+
+if (isset($_POST['delete_from_cart'])) {
+    $product_id = $_POST['product_id'];
+
+    // Check if the shopping cart session variable is set
+    if (isset($_SESSION['shopping_cart'])) {
+        // Find the index of the product in the shopping cart array
+        $index = array_search($product_id, $_SESSION['shopping_cart']);
+
+        // Remove the product from the shopping cart array
+        if ($index !== false) {
+            unset($_SESSION['shopping_cart'][$index]);
+        }
+    }
+
+    // Redirect to prevent form resubmission
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+}
+?>
+
 
 ?>
 
@@ -18,7 +60,8 @@ $cnt = count($produits);
                 <div class="row text-light text-center justify-content-center m-3">
 
                     <a href="./pages/testMPDF.php" target="_blank"
-                       class="align-self-right text-right btn btn-dark text-light" role="button" alt="créér pdf produits">Télécharger
+                       class="align-self-right text-right btn btn-dark text-light" role="button"
+                       alt="créér pdf produits">Télécharger
                         le catalogue</a>
                 </div>
                 <h3>Dvd</h3>
@@ -30,7 +73,8 @@ $cnt = count($produits);
                         <div class="card mb-3 p-2 m-3" style="max-width: 400px;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="../<?php print $produits[$i]->photo; ?>" class="img-fluid rounded-start" alt="..." style="max-width: 150px;">
+                                    <img src="../<?php print $produits[$i]->photo; ?>" class="img-fluid rounded-start"
+                                         alt="..." style="max-width: 150px;">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -39,7 +83,17 @@ $cnt = count($produits);
                                         <p class="card-text"><small
                                                     class="text-muted"><?php print $produits[$i]->description; ?></small>
                                         </p>
-                                        <button type="button" class="btn btn-primary btn-sm">Ajouter</button>
+
+                                        <form class="product-form" method="POST"
+                                              action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                            <input name="product_code" type="hidden"
+                                                   value="<?php echo $produits[$i]->id_produit; ?>">
+                                            <button type="submit" class="btn btn-primary btn-sm" name="add_to_cart">
+                                                Ajouter
+                                            </button>
+                                        </form>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +133,15 @@ $cnt = count($produits);
                                                     class="text-muted"><?php print $produits[$i]->description; ?></small>
                                         </p>
                                         <br><br>
-                                        <button type="button" class="btn btn-primary btn-sm">Ajouter</button>
+                                        <form class="product-form" method="POST"
+                                              action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                            <input name="product_code" type="hidden"
+                                                   value="<?php echo $produits[$i]->id_produit; ?>">
+                                            <button type="submit" class="btn btn-primary btn-sm" name="add_to_cart">
+                                                Ajouter
+                                            </button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +175,15 @@ $cnt = count($produits);
                                         <p class="card-text"><small
                                                     class="text-muted"><?php print $produits[$i]->description; ?></small>
                                         </p>
-                                        <button type="button" class="btn btn-primary btn-sm">Ajouter</button>
+                                        <form class="product-form" method="POST"
+                                              action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                            <input name="product_code" type="hidden"
+                                                   value="<?php echo $produits[$i]->id_produit; ?>">
+                                            <button type="submit" class="btn btn-primary btn-sm" name="add_to_cart">
+                                                Ajouter
+                                            </button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
@@ -128,36 +198,46 @@ $cnt = count($produits);
 
         </div>
 
+
         <div class="col">
             <div class="panier">
-
-
+                <h3>Panier d'achat</h3>
                 <?php
                 if (!empty($_SESSION["shopping_cart"])) {
-                    $cart_count = count(array_keys($_SESSION["shopping_cart"]));
-                    ?>
-                    <div class="cart_div">
-                        <h3>Panier d'achat</h3>
-                        <a href="prod.php" id="panier">
-                            <img id="CartIcon" src="cart-icon.png"/>
-                            <button id="panierBut">Panier/Checkout<br></button>
-                        </a> <br><br>
-                        <p id="cartCount"><?php echo $cart_count . '(Produit(s))'; ?></p>
-
-
-                    </div>
-
-                    <img title="Carlin showing up" id="UP" src="images/up.jpg">
-
-                    <?php
+                    $cart_count = count($_SESSION["shopping_cart"]);
+                    echo '<p id="cartCount">' . $cart_count . ' Produit(s)</p>';
+                    $prod = new produits($cnx);
+                    // Display the products in the shopping cart
+                    foreach ($_SESSION["shopping_cart"] as $product_id) {
+                        // Retrieve the product information based on the product ID
+                        $product = $prod->getProdById($product_id);
+                        ?>
+                        <div class="card mb-1 text-dark">
+                            <div class="row g-0">
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $product['nom_produit']; ?></h5>
+                                        <p class="card-text">Prix: <?php echo $product['prix']; ?> €</p>
+                                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                            <input type="hidden" name="product_id" value="<?php echo $product['id_produit']; ?>"/>
+                                            <button type="submit" class="btn btn-primary btn-sm" name="delete_from_cart">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                } else {
+                    echo '<p>Votre panier est vide.</p>';
                 }
                 ?>
-
-
             </div>
         </div>
 
     </div>
+
+
+</div>
 
 
 </div>

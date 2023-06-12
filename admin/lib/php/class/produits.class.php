@@ -60,6 +60,24 @@ class produits extends Hydrate {
         }
     }
 
+    public function getProdById($id){
+        try{
+            $query="select * from produit where id_produit = :id";
+            $res = $this->_db->prepare($query);
+            $res->bindValue(':id',$id);
+            $res->execute();
+            $data = $res->fetch();
+            if(!empty($data)) {
+                return $data;
+            }
+            else{
+                return 0;
+            }
+        }catch(PDOException $e){
+            print "Echec ".$e->getMessage();
+        }
+    }
+
     public function deleteProd($id_produit){
         try{
             $query = "DELETE FROM produit where id_produit= :id_produit";

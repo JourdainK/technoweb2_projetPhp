@@ -77,28 +77,28 @@ var_dump($dvd);
                         <th scope="row">2</th>
                         <td>1997</td>
                         <td>Brain droppings</td>
-                        <td><img class="biblio" src="images/drop.jpg" style="width: 30%"></td>
+                        <td class="text-center"><img class="biblio" src="images/drop.jpg" style="width: 30%"></td>
                     </tr>
 
                     <tr>
                         <th scope="row">3</th>
                         <td>2001</td>
                         <td>Napalm and silly putty</td>
-                        <td><img class="biblio" src="images/napalm.JPG" style="width: 30%"></td>
+                        <td class="text-center"><img class="biblio" src="images/napalm.JPG" style="width: 30%"></td>
                     </tr>
 
                     <tr>
                         <th scope="row">4</th>
                         <td>2004</td>
                         <td>when will Jesus bring the pork chops ?</td>
-                        <td><img class="biblio" src="images/chops.jpg" style="width: 30%"></td>
+                        <td class="text-center"><img class="biblio" src="images/chops.jpg" style="width: 30%"></td>
                     </tr>
 
                     <tr>
                         <th scope="row">5</th>
                         <td>2009</td>
                         <td>Last Words (posthume)</td>
-                        <td><img class="biblio" src="images/words.jpg" style="width: 30%"></td>
+                        <td class="text-center"><img class="biblio" src="images/words.jpg" style="width: 30%"></td>
                     </tr>
                     </tbody>
                 </table>
