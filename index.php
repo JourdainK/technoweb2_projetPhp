@@ -2,7 +2,6 @@
 session_start();
 include 'admin/lib/php/admin_liste_include.php';
 ?>
-&
 <!doctype html>
 <html lang="fr">
 <head>
@@ -29,6 +28,7 @@ include 'admin/lib/php/admin_liste_include.php';
 </nav>
 
 <section id="mains">
+    <br><br>
 
    <?php
     if(!isset($_SESSION['page'])){

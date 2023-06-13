@@ -18,7 +18,7 @@
             </ul>
         </div>
         <div class="col-lg-8 pt-5">
-           <h2 class="text-center">Videos V.O Sous-titrées</h2>
+           <h2 class="text-center">Vidéos V.O Sous-titrées</h2>
 
             <div class="container-fluid text-center">
                 <iframe width="420" height="315" src="https://www.youtube.com/embed/YCGQ86-ucrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="col pt-5">
-            <h2 class="text-center">Videos V.O</h2>
+            <h2 class="text-center">Vidéos V.O</h2>
             <div class="container-fluid text-center">
                 <iframe width="420" height="315" src="https://www.youtube.com/embed/-zIuQe0Bhug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

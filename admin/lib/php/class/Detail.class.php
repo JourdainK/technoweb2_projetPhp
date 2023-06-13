@@ -10,11 +10,10 @@ class Detail extends Hydrate {
     }
 
 
-    public function addDetail($id_detail, $quantite, $id_commande, $id_produit){
+    public function addDetail($quantite, $id_commande, $id_produit){
         try {
-            $query = "INSERT INTO detail(id_detail, quantite, id_commande, id_produit) VALUES (:id_detail, :quantite, :id_commande, :id_produit)";
+            $query = "INSERT INTO detail(quantite, id_commande, id_produit) VALUES ( :quantite, :id_commande, :id_produit)";
             $res = $this->_db->prepare($query);
-            $res->bindValue(':id_detail', $id_detail);
             $res->bindValue(':quantite', $quantite);
             $res->bindValue(':id_commande', $id_commande);
             $res->bindValue(':id_produit', $id_produit);
@@ -51,5 +50,23 @@ class Detail extends Hydrate {
         }
     }
 
+    public function removeAllDetailsOrder($id_commande){
+        try{
+            $query = "DELETE FROM detail WHERE id_commande = :id_commande";
+            $res = $this->_db->prepare($query);
+            $res->bindValue(':id_commande', $id_commande);
+            $res->execute();
+            $data = $res->fetch();
+            if(!empty($data)){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }catch (PDOException $e){
+            print "échec : ".$e->getMessage();
+        }
+
+    }
 
 }

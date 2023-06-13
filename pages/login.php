@@ -11,7 +11,10 @@ if(isset($_POST['submit_login'])){
         $cli = $client->isClient($_POST['login'],$_POST['password']);
 
         if($cli){
-            $_SESSION['client'] = 1;
+            $mail_client = $_POST['login'];
+            //class client -> getClientByMail
+            $_SESSION['client'] = $mail_client;
+            $_SESSION['client_id'] = $client->getClientByMail($mail_client)['id_client'];
             unset($_SESSION['page']);
             print '<meta http-equiv="refresh": content="0;url=./index.php">';
         }else{

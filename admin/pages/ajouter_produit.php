@@ -54,11 +54,13 @@ $nbrcateg = count($categories);
                            aria-describedby="prixHelp">
                     <div id="prixHelp" class="form-text text-light">Entrer le prix du produit.</div>
                 </div>
+                <!-- TODO fix upload pic -> ajax/php
                 <div class="col-md-6">
                     <br><label for="file">Ajouter une photo du produit :</label><br>
                     <input name="file" type="file" id="file" class="form-control" accept="image/png,image/jpeg">
 
                 </div>
+                -->
                 <br>
 
                 <button type="submit" name="submit_form" id="editer_ajouter" class="btn btn-dark mb-3" >Valider</button>

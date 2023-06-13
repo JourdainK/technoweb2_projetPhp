@@ -5,9 +5,14 @@ $produits = $prod->getAllProduits();
 $nbrprod = count($produits);
 
 if(isset($_POST['submit'])) {
-    //TODO traitement PHP si JS DISPO
-    // -> bouton -> si submit
-    // cacher bouton avec JS -> si pas JS bouton apparaitra
+    /*
+    extract($_POST, EXTR_OVERWRITE);
+    $prod->updateProduit($id_produit, $nom_produit, $description, $prix, $image, $id_categorie);
+    ?>
+    <meta http-equiv = "refresh": content = "0;url=index.php?page=gestion_produits.php">
+
+    <?php
+    */
 }
 ?>
 

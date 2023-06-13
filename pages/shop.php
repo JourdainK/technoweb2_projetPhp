@@ -7,28 +7,28 @@ $cnt = count($produits);
 
 // Check if the add to cart form is submitted
 if (isset($_POST['add_to_cart'])) {
+
     $product_id = $_POST['product_code'];
-    //TODO handle quantity -> then create order (just the id) get the id -> fill detail with qty, id_produit and id_commande
-    // write order in DB , not taking care of the subscribed client or anonymous client
-
-    //TODO got the prod -> Create Commande(AJAX, GET ID) -> use ajax recup prodbyId -> add to detail (AJAX)  -> add detail to commande
-
-    //TODO if delete Or cancel order -> Ajax ( delete blablah) -> delete detail -> delete commande
     $qty = $_POST['quantity'];
+
 
     // Check if the shopping cart session variable is not already set
     if (!isset($_SESSION['shopping_cart'])) {
         $_SESSION['shopping_cart'] = array();
+        $_SESSION['cart_quantity'] = array();
     }
 
     if (!in_array($product_id, $_SESSION['shopping_cart'])) {
         // Add the product to the shopping cart session variable
         $_SESSION['shopping_cart'][] = $product_id;
+        $_SESSION['cart_quantity'][] = $qty;
+
+        // Redirect to prevent form resubmission
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
     }
 
-    // Redirect to prevent form resubmission
-    header("Location: " . $_SERVER['PHP_SELF']);
-    exit();
+
 }
 
 if (isset($_POST['delete_from_cart'])) {
@@ -49,14 +49,54 @@ if (isset($_POST['delete_from_cart'])) {
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
+
+
+if (isset($_POST['confirm_order'])) {
+    $commande = new Commande($cnx);
+    $id_commande = $commande->addBlankCommande();
+    $detail = new Detail($cnx);
+    $cntProd = count($_SESSION['shopping_cart']);
+    for($i = 0; $i < $cntProd; $i++){
+        $detail->addDetail( $_SESSION['cart_quantity'][$i],$id_commande,$_SESSION['shopping_cart'][$i]);
+    }
+    $total = $commande->getTotalCommande($id_commande);
+    $date = date('m/d/Y', time());
+    $commande->addTotalDate($id_commande,$total,$date);
+
+    if(isset($_SESSION['client_id'])){
+        $check = $commande->addIdClientToOrder($id_commande,$_SESSION['client_id']);
+        if($check > 0){
+            //echo '<br><br><br>Client ajouté à la commande';
+        }
+    }
+
+    if(isset($_SESSION['shopping_cart'])){
+        unset($_SESSION['shopping_cart']);
+        unset($_SESSION['cart_quantity']);
+        unset($_SESSION['id_commande']);
+        unset($_SESSION["total_price"]);
+    }
+
+}
+
+/*
+if (isset($_POST['cancel_order'])) {
+    //not usefull -> order hasn't been created yet (need to push confirm)
+    $commande = new Commande($cnx);
+    $detail = new Detail($cnx);
+    $detail->removeAllDetailsOrder($id_commande);
+
+    $commande->deleteCommande($_POST['id_commande']);
+}
+*/
+
 ?>
 
 
-?>
+
 
 <div class="container pt-5">
     <br><br>
-
 
     <div class="row">
         <div class="col-8">
@@ -199,33 +239,67 @@ if (isset($_POST['delete_from_cart'])) {
                 <h3>Panier d'achat</h3>
                 <?php
                 if (!empty($_SESSION["shopping_cart"])) {
+                    $_SESSION['total_price'] = 0;
                     $cart_count = count($_SESSION["shopping_cart"]);
                     echo '<p id="cartCount">' . $cart_count . ' Produit(s)</p>';
                     $prod = new produits($cnx);
                     // Display the products in the shopping cart
+                    $cpt = 0;
                     foreach ($_SESSION["shopping_cart"] as $product_id) {
                         // Retrieve the product information based on the product ID
                         $product = $prod->getProdById($product_id);
+                        $quantite = $_SESSION["cart_quantity"][$cpt];
+                        $cpt++;
+                        $total_article = $product['prix'] * $quantite;
+                        $_SESSION['total_price'] += $total_article;
                         ?>
-                        <div class="card mb-1 text-dark">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo $product['nom_produit']; ?></h5>
-                                        <p class="card-text">Prix: <?php echo $product['prix']; ?> €</p>
-                                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                                            <input type="hidden" name="product_id" value="<?php echo $product['id_produit']; ?>"/>
-                                            <button type="submit" class="btn btn-primary btn-sm" name="delete_from_cart">Supprimer</button>
-                                    </div>
-                                </div>
+                        <div class="card mb-1 text-dark text-center">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $product['nom_produit']; ?></h5>
+                                <p class="card-text">Prix: <?php echo $product['prix']; ?> €</p>
+                                <p>Quantité :  <?php print $quantite; ?></p>
+                                <p>Sous-total: <?php print $total_article; ?> €</p>
+                                <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                    <input type="hidden" name="product_id" value="<?php echo $product['id_produit']; ?>"/>
+                                    <button type="submit" class="btn btn-primary btn-sm" name="delete_from_cart">Supprimer</button>
+                                </form>
                             </div>
                         </div>
+
+                        <?php
+                        if(isset($_SESSION['total_price'])){
+                            print 'Total de la commande : '.$_SESSION['total_price'].' €';
+                        }
+                        ?>
                         <?php
                     }
                 } else {
                     echo '<p>Votre panier est vide.</p>';
                 }
                 ?>
+            </div>
+
+
+            <div class="text-center">
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                    <?php
+                    if(isset($_SESSION["shopping_cart"])){
+
+
+                        print '
+                        <p>Confirmer la commande : </p>
+                    <button type="submit" class="btn btn-primary btn-sm m-2" name="confirm_order">Confirmer</button>
+                    <!-- unimplemented yet
+                    <button type="reset" class="btn btn-primary btn-sm m-2" name="cancel_order">Annuler</button>
+                     -->
+                    
+                    ';
+
+                    }
+
+                    ?>
+
+                </form>
             </div>
         </div>
 
